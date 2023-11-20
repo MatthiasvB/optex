@@ -1,0 +1,15 @@
+{
+  "name": "optex",
+  "version": "0.0.1",
+  "description": "Utilites for optional execution of functions (only if arguments a non-nullish)",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "keywords": [
+    "optional",
+    "execution"
+  ],
+  "author": "Matthias vom Bruch",
+  "license": "MIT"
+}
