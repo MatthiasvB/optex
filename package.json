@@ -1,6 +1,6 @@
 {
   "name": "optex",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Utilites for optional execution of functions (only if arguments are non-nullish)",
   "scripts": {
     "clean": "rm -rf ./lib",
