@@ -1,15 +1,38 @@
 {
   "name": "optex",
   "version": "0.0.1",
-  "description": "Utilites for optional execution of functions (only if arguments a non-nullish)",
-  "main": "index.js",
+  "description": "Utilites for optional execution of functions (only if arguments are non-nullish)",
   "scripts": {
+    "clean": "rm -rf ./lib",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p ./tsconfig.esm.json && mv lib/esm/index.js lib/esm/index.js",
+    "build:cjs": "tsc -p ./tsconfig.cjs.json",
+    "prepack": "npm run build",
     "test": "vitest"
   },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/esm/types/index.d.ts",
+        "default": "./lib/esm/index.js"
+      },
+      "require": {
+        "types": "./lib/cjs/types/index.d.ts",
+        "default": "./lib/cjs/index.js"
+      }
+    }
+  },
+  "types": "./lib/cjs/types/index.d.ts",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "files": ["lib/**/*"],
   "keywords": [
     "optional",
     "execution"
   ],
   "author": "Matthias vom Bruch",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "5.3.2"
+  }
 }
